@@ -12,6 +12,10 @@ All changes to the **Hearts of Modding** extension will be documented in this fi
 
 - **Release descriptions now include the last 3 patch versions** instead of just the current patch + its parent minor, so upgrading from an older patch shows the intermediate fixes.
 
+### 🩹 Fixed
+
+- **The LSP now reconnects after repeated server exits** instead of permanently giving up after a burst of failures, such as when opening a large file that produces many logs.
+
 ## [v0.26.2] - 2026-08-13
 
 ### 🔧 Changed
