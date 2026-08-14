@@ -780,6 +780,11 @@ async function startServerInner(context: ExtensionContext, statusBarItem: Status
             fileEvents: fileEventWatchers ?? []
         },
         outputChannel: outputChannel,
+        // The default handler gives up after five exits in three minutes.
+        // Large-file log bursts can exhaust that budget and leave the LSP off.
+        connectionOptions: {
+            maxRestartCount: Number.MAX_SAFE_INTEGER
+        },
         initializationOptions: {
             gamePath: workspace.getConfiguration('hoi4').get('gamePath'),
             dependencyModPaths: workspace.getConfiguration('hoi4').get('modPaths'),
